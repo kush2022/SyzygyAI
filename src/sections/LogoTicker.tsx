@@ -24,11 +24,15 @@ export const LogoTicker = () => {
   ];
 
   return (
-    <section className="py-20 md:py-24 mt-5">
-      <div className="container">
+    <section className="py-20 md:py-24 mt-5 relative">
+      <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+      
+      <div className="container relative z-10">
         <div className="flex items-center gap-5">
           <div className="flex-1 md:flex-none">
-            <h2>Trusted by top innovative teams</h2>
+            <h2 className="text-white/90 font-semibold text-lg md:text-xl">
+              Trusted by top innovative teams
+            </h2>
           </div>
           <div className="flex flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]">
             <motion.div
@@ -46,15 +50,19 @@ export const LogoTicker = () => {
               className="flex flex-none gap-14 pr-14 -translate-x-1/2"
             >
               {logos.map((logo, index) => (
-                <Image
+                <div 
                   key={index}
-                  src={logo}
-                  alt={`Partner logo ${index + 1}`}
-                  height={24}
-                  width={96}
-                  className="w-auto h-6"
-                  priority={index < 5}
-                />
+                  className="p-4 rounded-xl bg-white/10 backdrop-blur-md hover:bg-white/20 transition-colors"
+                >
+                  <Image
+                    src={logo}
+                    alt={`Partner logo ${index + 1}`}
+                    height={24}
+                    width={96}
+                    className="w-auto h-6 brightness-200 contrast-100"
+                    priority={index < 5}
+                  />
+                </div>
               ))}
             </motion.div>
           </div>
