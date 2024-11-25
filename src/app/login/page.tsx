@@ -36,7 +36,17 @@ export default function Login() {
       Cookies.set("access_token", access_token);
 
       // Fetch user data 
+      const userData = await axios.get("http://localhost:8000/auth/users/me", {
+        headers: {                
+          Authorization: `Bearer ${access_token}`,
+        },
+      });
       
+      // Save user data in a cookie
+      Cookies.set("user_data", JSON.stringify(userData.data));
+
+      console.log(userData.data);
+
       // Redirect to the home page
       router.push("/dashboard");
 

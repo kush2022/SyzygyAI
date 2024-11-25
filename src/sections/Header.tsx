@@ -60,7 +60,11 @@ export const Header = () => {
         </div>
 
         <div className="flex gap-4 items-center">
-          <Button>Join waitlist</Button>
+          <a href="#contact">
+            <Button>
+              Request demo
+            </Button>
+          </a>
           <MobileNav />
         </div>
       </nav>
